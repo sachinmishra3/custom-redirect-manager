@@ -1,4 +1,4 @@
-=== Custom Redirect Manager ===
+=== Simple Redirect Manager ===
 Contributors: sachinatzenith
 Tags: Set page redirect, redirect plugin, 301 redirect, 302 redirect
 Tested up to: 6.7
