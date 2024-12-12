@@ -1,6 +1,6 @@
 === Simple Redirect Manager ===
 Contributors: sachinatzenith
-Tags: Set page redirect, redirect plugin, 301 redirect, 302 redirect
+Tags: Set page redirect, redirect plugin, 301 redirect, 302 redirect, without going to .htaccess file.
 Tested up to: 6.7
 Stable tag: 1.0.0
 Requires PHP atleast: 7.4
@@ -41,6 +41,7 @@ As an admin, you might need to work on some pages that you want to hide from vis
 
 
 == Upgrade Notice ==
+
 = 1.0.0 =
 
 * First Release

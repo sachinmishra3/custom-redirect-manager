@@ -167,17 +167,17 @@ add_action('admin_menu', 'srms_add_admin_menu');
         <form method="post">
             <?php wp_nonce_field($edit_redirect ? 'srms_update_redirect_nonce' : 'srms_add_redirect_nonce'); ?>
             <input type="hidden" name="redirect_id" value="<?php echo esc_attr($edit_redirect->id ?? ''); ?>">
-            <table class="form-table">
+            <table class="form-table srms-form">
                 <tr>
-                    <th><?php esc_html('Old URL'); ?></th>
+                    <td><?php echo esc_html('Old URL'); ?><small><em><?php echo esc_html(' (Page you want to redirect from)'); ?></em></small></td>
                     <td><input type="text" name="old_url" value="<?php echo esc_attr($edit_redirect->old_url ?? ''); ?>" required></td>
                 </tr>
                 <tr>
-                    <th><?php esc_html('New URL'); ?></th>
+                    <td><?php echo  esc_html('New URL'); ?><small><em><?php echo esc_html(' (Page you want it redirect to)'); ?></em></small></td>
                     <td><input type="text" name="new_url" value="<?php echo esc_attr($edit_redirect->new_url ?? ''); ?>" required></td>
                 </tr>
                 <tr>
-                    <th><?php esc_html('Redirect Type'); ?></th>
+                    <th><?php echo esc_html('Redirect Type'); ?></th>
                     <td>
                         <select name="type">
                             <option value="301" <?php selected($edit_redirect->type ?? '', '301'); ?>>301 (Permanent)</option>
@@ -194,7 +194,7 @@ add_action('admin_menu', 'srms_add_admin_menu');
     $redirects = $wpdb->get_results("SELECT * FROM  ".$wpdb->prefix."srms_redirects");    // phpcs:ignore WordPress.DB.DirectDatabaseQuery 
     ?>
     <h2><?php esc_html('Existing Redirects'); ?></h2>
-    <table class="wp-list-table widefat fixed striped">
+    <table class="wp-list-table widefat fixed striped srms-table">
         <thead>
             <tr>
                 <th><?php echo esc_attr('Old URL'); ?></th>
@@ -235,6 +235,14 @@ add_action('admin_menu', 'srms_add_admin_menu');
             <?php endforeach; ?>
         </tbody>
     </table>
+    <style>
+        .srms-form input {
+            width: 350px;
+            }
+            .srms-table {
+            width: auto;
+            }
+    </style>
     <?php
 }
 
